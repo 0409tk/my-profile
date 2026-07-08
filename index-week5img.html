@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- スマホでレスポンシブを効かせるために必須のタグ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPO法人 アースクリーン</title>
+    <!-- Tailwind CSSをCDNで読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- 1. ヘッダーエリア -->
+    <!-- スマホでは縦並び(flex-col)、PC(md以上)では横並び(md:flex-row)で左右に分散配置 -->
+    <header class="bg-white shadow px-6 py-4">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h1 class="text-xl font-bold text-emerald-600">🌱 NPO法人 アースクリーン</h1>
+            <nav class="flex flex-col md:flex-row gap-2 md:gap-6 text-sm font-medium">
+                <a href="#" class="text-slate-600 hover:text-emerald-600 transition">ホーム</a>
+                <a href="#" class="text-slate-600 hover:text-emerald-600 transition">活動内容</a>
+                <a href="#" class="text-slate-600 hover:text-emerald-600 transition">メンバー募集</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ全体の幅制限 -->
+    <main class="max-w-5xl mx-auto px-6 py-10">
+
+        <!-- 2. ヒーロー（メインビジュアル）エリア -->
+        <!-- スマホでは縦並び、PC(md以上)では左右に50%ずつ(md:w-1/2)綺麗に並ぶ設定 -->
+        <section class="flex flex-col md:flex-row items-center gap-8 mb-16">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-snug">
+                    美しい地球を、<br>次の世代へ。
+                </h2>
+                <p class="text-slate-600 mb-6">
+                    私たちは地域のゴミ拾い活動や、子どもたちへの環境教育を通じて、持続可能な未来をつくるための小さな一歩を積み重ねています。
+                </p>
+                <a href="#"
+                    class="inline-block bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition shadow-md">
+                    活動に参加する
+                </a>
+            </div>
+            <!-- 画像の代わりにプレースホルダーとしての色付きボックス（実際の画像パスに変更可能） -->
+            <div
+                class="w-full md:w-1/2 bg-emerald-100 rounded-2xl h-64 md:h-80 flex items-center justify-center text-emerald-600 font-bold text-lg">
+                【ここにメイン画像】
+            </div>
+        </section>
+
+        <!-- 3. 活動内容（カード）エリア -->
+        <!-- スマホでは縦に1列(grid-cols-1)、PC(md以上)では3列(md:grid-cols-3)に切り替わる -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 text-center md:text-left">主な活動内容</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- カード1 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition border border-slate-100">
+                    <span class="text-3xl block mb-3">🧹</span>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">ビーチ＆クリーン</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        毎月第2土曜日に、地域の海岸や公園の清掃活動を行っています。どなたでも手ぶらで参加可能です。
+                    </p>
+                </div>
+
+                <!-- カード2 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition border border-slate-100">
+                    <span class="text-3xl block mb-3">🏫</span>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">みどりの出前授業</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        地元の小学校を訪問し、ゲームやクイズを交えながら楽しくリサイクルを学ぶ授業を行っています。
+                    </p>
+                </div>
+
+                <!-- カード3 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition border border-slate-100">
+                    <span class="text-3xl block mb-3">🌲</span>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">植樹・里山保全</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        地域の伝統的な里山を守るため、どんぐりの苗木を植えたり、雑木林の手入れを行っています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4. フッター -->
+    <footer class="bg-slate-900 text-slate-400 text-sm text-center py-8 border-t border-slate-800">
+        <p>&copy; 2026 NPO法人 アースクリーン. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
