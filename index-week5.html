@@ -10,12 +10,12 @@
 
 <body class="bg-white">
   <header class="bg-white shadow top-0 left-0 z-[99] w-full fixed">
-    <div class="flex p-4 justify-between">
-      <div class="flex gap-4">
+    <div class="flex p-4 justify-between items-center">
+      <div class="flex gap-4 items-center">
         <p>💧</p>
         <h1 class="font-bold text-green-400">水分総合研究所</h1>
       </div>
-      <nav>
+      <nav class="text-sm md:text-base">
         <a href="#Home" class="hover:scale-105 transition mr-3">ホーム</a>
         <a href="#main" class="hover:scale-105 transition">商品</a>
       </nav>
@@ -26,9 +26,9 @@
   <main class="max-w-5xl mx-auto px-6 py-10 ">
 
 
-    <section class="p-6 rounded-md flex flex-row gap-32 items-center" id="Home">
-      <div class="w-1/2 flex flex-col gap-6">
-        <h1 class="text-5xl font-bold text-blue-800 mb-8">安くておいしい！
+    <section class="p-6 rounded-md flex flex-col gap-8 md:flex-row md:gap-32 items-center" id="Home">
+      <div class="w-full md:w-1/2 flex flex-col gap-6">
+        <h1 class="text-3xl md:text-5xl font-bold text-blue-800 mb-4 md:mb-8">安くておいしい！
           <br>中大飲み物特集
         </h1>
 
@@ -40,19 +40,18 @@
           キャンパスの地図を見る
         </a>
       </div>
-      <div class="w-1/2">
+      <div class="w-full md:w-1/2">
         <img src="./中央大学水.avif" alt="中央大学の水の写真" class="w-full h-auto rounded-md">
       </div>
     </section>
 
 
-    <p class="font-bold text-2xl text-center mt-24 text-green-800 mb-24 mt-48" id="main">おすすめの飲み物</p>
+    <p class="font-bold text-2xl text-center mt-24 text-green-800 mb-12 md:mb-24 md:mt-48" id="main">おすすめの飲み物</p>
 
 
-    <section class="flex gap-6 mx-4">
+    <section class="flex flex-col md:flex-row gap-6 mx-4">
 
-      <div
-        class="flex flex-col w-1/3 hover:shadow-md transition border border-slate-200 overflow-hidden rounded-md h-80">
+      <div class="flex flex-col w-full md:w-1/3 hover:shadow-md transition border border-slate-200 overflow-hidden rounded-md h-80">
         <img src="./chuo-tea.avif" alt="中大茶の写真" class="w-full h-1/2 object-fill">
         <div class="flex flex-col bg-green-200 flex-grow p-4">
           <p class="font-bold text-green-600">中大茶</p>
@@ -62,7 +61,7 @@
       </div>
 
       <div
-        class="flex flex-col w-1/3 hover:shadow-md transition border border-slate-200 overflow-hidden rounded-md h-80">
+        class="flex flex-col w-full md:w-1/3 hover:shadow-md transition border border-slate-200 overflow-hidden rounded-md h-80">
         <img src="./中央大学水.avif" alt="中大水の写真" class="w-full h-1/2 object-fill">
         <div class="flex flex-col bg-green-200 flex-grow p-4">
           <p class="font-bold text-green-600">中大水</p>
@@ -72,8 +71,8 @@
       </div>
 
       <div
-        class="flex flex-col w-1/3 hover:shadow-md transition border border-slate-200over overflow-hidden rounded-md h-80">
-        <img src="./jyasumin.jpg" alt="ジャスミン茶の写真" class="w-full h-1/2 object-coatain">
+        class="flex flex-col w-full md:w-1/3 hover:shadow-md transition border border-slate-200over overflow-hidden rounded-md h-80">
+        <img src="./jyasumin.jpg" alt="ジャスミン茶の写真" class="w-full h-1/2 object-contain">
         <div class="flex flex-col bg-green-200 flex-grow p-4">
           <p class="font-bold text-green-600">ジャスミン茶</p>
           <p class="text-black-300 my-1">100yen</p>
