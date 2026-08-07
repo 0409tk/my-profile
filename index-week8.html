@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week08 ミニドリル 問題3｜名前ソート + 復習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-sky-50 to-white">
+    
+    <main class="mx-auto max-w-4xl px-6 py-10">
+        <div id="memberCards" class="grid gap-4 sm:grid-cols-3">
+
+        </div>
+    </main>
+
+    <script>
+        const namebtn = document.querySelector("#namebtn");
+
+        const members = [
+            { name: "三木優翔", role: "瀬川洋輔の善き理解者", comment: "ライブ楽しみです！"},
+            { name: "椎橋泉月", role: "平和の使徒", comment: "バイト頑張りましょう…。"},
+            { name: "山根拓己", role: "メンズコーチ", comment: "ジャルジャルとヨルシカがすきです。"},
+            { name: "花田晴哉", role: "イベントスタッフ", comment: "夏はたくさん働きます。"},
+            { name: "林菜月", role: "季節部門", comment: "最近はダイキンがおすすめです。"},
+        ];
+
+
+        function lists(array) {
+            const memberCards = document.querySelector("#memberCards");
+            memberCards.innerHTML = "";
+
+            array.forEach(e => {
+                const card = document.createElement("div");
+                card.className = "bg-white rounded-md p-4 shadow";
+
+                card.innerHTML = `
+        <h2 class ="font-bold text-xl">${e.name}</h2>
+        <p class ="text-blue-500 text-xl">${e.role}</p>
+        <p class ="text-gray-500 text-xl">${e.comment}</p>
+        `;
+
+                memberCards.appendChild(card);
+            });
+        }
+        lists(members);
+
+
+    </script>
+
+</body>
+
+</html>
