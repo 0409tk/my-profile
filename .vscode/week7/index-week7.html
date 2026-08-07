@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOリスト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full bg-white rounded-md max-w-md shadow p-8">
+        <h1 class="font-bold text-2xl md:text-3xl mb-4">TODOリスト</h1>
+
+        <div class="flex mb-3">
+            <input type="text" id="todoinput" placeholder="タスクを入力" class="border border-gray-300 rounded-md px-3 py-2 flex-1 mr-2 ">
+            <button id="addbtn" class="font-bold bg-blue-600 rounded-md text-white px-4 py-2 hover:bg-blue-700 transition">追加</button>            
+        </div>
+        <ul id="todolist" class="space-y-2"></ul>
+    </div>
+
+    <script>
+        const addbtn = document.querySelector("#addbtn")
+        const todoinput = document.querySelector("#todoinput")
+        const todolist = document.querySelector("#todolist")
+
+        addbtn. addEventListener("click", () => {
+            const text = todoinput.value;
+
+            if (text === ""){
+                return;
+            }
+            // console.log(text);
+
+            const item = document.createElement("li");
+            // item.textContent = text;
+            item.className = "flex items-center justify-between bg-gray-50 rounded px-3 py-2";
+            todolist.appendChild(item);
+            // const span = document.createElement("span")
+
+            const span =document.createElement("span");
+            span.textContent = text;
+            item.appendChild(span)
+
+            const donebtn = document.createElement("button");
+            donebtn.textContent = "完了";
+            donebtn.className = "text-sm text-gray-500 hover:text-red-500";
+
+            donebtn.addEventListener("click", () => {
+                span.classList.toggle("line-through")
+                span.classList.toggle("text-gray-400")
+
+            });
+            
+            item.appendChild(donebtn);
+            todolist.appendChild(item);
+            todoinput.value = "";
+
+        
+
+        });
+        
+
+    </script>
+    
+    
+</body>
+</html>
