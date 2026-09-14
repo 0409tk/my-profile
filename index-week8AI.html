@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チームメンバー一覧</title>
+  <!-- Tailwind CSSの読み込み -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen p-6">
+
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8 text-gray-700">チームメンバー一覧</h1>
+
+    <!-- 絞り込みボタン（発展課題） -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <button class="filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-blue-500 text-white shadow-sm" data-role="All">
+        全員
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 shadow-sm" data-role="マネージャー">
+        マネージャー
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 shadow-sm" data-role="エンジニア">
+        エンジニア
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 shadow-sm" data-role="デザイナー">
+        デザイナー
+      </button>
+    </div>
+
+    <!-- メンバーカードを表示するコンテナ -->
+    <!-- PC幅では3列、スマホ幅では1列になるように grid-cols を設定 -->
+    <div id="members-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- JavaScriptでここにカードが生成されます -->
+    </div>
+  </div>
+
+  <script>
+    // 1. メンバーデータをオブジェクトの配列として定義（5人分）
+    // 初期並び順の理由: 組織図をイメージしやすくするため、役割順（マネージャー → エンジニア → デザイナー）にしています。
+    const members = [
+      { name: "田中 太郎", role: "マネージャー", comment: "チームの進行管理とサポートを担当します！" },
+      { name: "佐藤 健太", role: "エンジニア", comment: "フロントエンドからバックエンドまで何でもやります。" },
+      { name: "鈴木 花子", role: "エンジニア", comment: "最近はReactとTypeScriptにハマっています。" },
+      { name: "高橋 メグ", role: "デザイナー", comment: "使いやすくて美しいUI/UXを設計します。" },
+      { name: "伊藤 翔",   role: "デザイナー", comment: "ロゴ制作やイラスト作成が得意です。" }
+    ];
+
+    const container = document.getElementById('members-container');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    // 2. メンバーカードを生成して表示する関数
+    function renderMembers(dataToRender) {
+      // コンテナの中身を一度リセットする
+      container.innerHTML = '';
+
+      // forEachを使って配列データをループ処理し、HTMLを生成
+      dataToRender.forEach(member => {
+        // テンプレートリテラル (バッククォート) を使ってHTML文字列を作成
+        const cardHTML = `
+          <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-400 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-bold mb-1">${member.name}</h2>
+            <span class="inline-block bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-md mb-4 font-semibold">
+              ${member.role}
+            </span>
+            <p class="text-gray-600 text-sm leading-relaxed">${member.comment}</p>
+          </div>
+        `;
+        // 生成したHTMLをコンテナに追加
+        container.innerHTML += cardHTML;
+      });
+    }
+
+    // 初回読み込み時に全員を表示
+    renderMembers(members);
+
+    // 3. 絞り込み機能（発展課題）
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // クリックされたボタンの data-role の値を取得
+        const selectedRole = e.target.getAttribute('data-role');
+
+        // 見た目の更新（選択されたボタンを目立たせる）
+        filterBtns.forEach(b => {
+          b.className = "filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 shadow-sm";
+        });
+        e.target.className = "filter-btn px-4 py-2 rounded-full font-medium transition-colors bg-blue-500 text-white shadow-sm";
+
+        // データのフィルタリング処理
+        if (selectedRole === 'All') {
+          // 全員表示
+          renderMembers(members);
+        } else {
+          // filterメソッドで役割が一致するメンバーだけを抽出
+          const filteredMembers = members.filter(member => member.role === selectedRole);
+          
+          // console.logで抽出結果を確認
+          console.log(`${selectedRole} で絞り込んだ結果:`, filteredMembers);
+          
+          // 抽出した配列をレンダリング関数に渡す
+          renderMembers(filteredMembers);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
