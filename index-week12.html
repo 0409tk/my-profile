@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜月のポートフォリオ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #works { scroll-margin-top: 12rem; }
+        .splide__pagination { bottom: -1.5rem; }
+        .splide__pagination__page { background: #a5b4fc; }
+        .splide__pagination__page.is-active { background: #4f46e5; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+    <!-- ヘッダー：スクロールしても画面上部に表示 -->
+    <header class="sticky top-0 z-50 bg-indigo-600 px-4 py-5 text-center text-white shadow-sm sm:py-7">
+        <h1 class="text-2xl font-bold tracking-wide sm:text-3xl">菜月のポートフォリオ</h1>
+        <p class="mt-2 text-sm text-indigo-100 sm:text-base">学んだことを、一つずつかたちに。</p>
+    </header>
+
+    <main class="mx-auto max-w-3xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
+        <!-- 自己紹介 -->
+        <section aria-labelledby="about-title" class="rounded-2xl border border-indigo-100 bg-white p-6 shadow-sm sm:p-8">
+            <p class="mb-2 text-xs font-bold tracking-widest text-indigo-500">ABOUT ME</p>
+            <h2 id="about-title" class="mb-4 text-2xl font-bold">自己紹介</h2>
+            <p class="leading-8 text-slate-600">
+                こんにちは、菜月です！POSSEでプログラミングを学んでいます。<br>
+                このページでは、学んでいる技術と写真を紹介します。
+            </p>
+            <!-- ホバーアニメーション①：リンクが少し大きくなる -->
+            <a href="#works" class="mt-6 inline-flex items-center gap-3 rounded-full bg-indigo-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-indigo-700 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600 motion-reduce:transform-none">
+                作品を見る <span aria-hidden="true">↓</span>
+            </a>
+        </section>
+
+        <!-- スキルリスト -->
+        <section aria-labelledby="skills-title">
+            <p class="mb-2 text-xs font-bold tracking-widest text-indigo-500">SKILLS</p>
+            <h2 id="skills-title" class="mb-5 text-2xl font-bold">学んでいるスキル</h2>
+            <!-- ホバーアニメーション②：スキルカードが少し浮き上がる -->
+            <ul class="grid gap-3 sm:grid-cols-2">
+                <li class="rounded-xl border border-indigo-100 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-md motion-reduce:transform-none">
+                    <h3 class="font-bold text-indigo-700">HTML</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">見出しや文章、画像でページの構造を作る。</p>
+                </li>
+                <li class="rounded-xl border border-indigo-100 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-md motion-reduce:transform-none">
+                    <h3 class="font-bold text-indigo-700">Tailwind CSS</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">色や余白を整えて、画面幅に合うデザインにする。</p>
+                </li>
+                <li class="rounded-xl border border-indigo-100 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-md motion-reduce:transform-none">
+                    <h3 class="font-bold text-indigo-700">CSSアニメーション</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">ホバー時の変化を滑らかにして、動きを加える。</p>
+                </li>
+                <li class="rounded-xl border border-indigo-100 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-md motion-reduce:transform-none">
+                    <h3 class="font-bold text-indigo-700">JavaScript / Splide</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">写真を切り替えられるスライダーを作る。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 作品スライダー：2枚の写真 -->
+        <section id="works" aria-labelledby="works-title" class="pb-6">
+            <p class="mb-2 text-xs font-bold tracking-widest text-indigo-500">WORKS</p>
+            <h2 id="works-title" class="mb-3 text-2xl font-bold">作品</h2>
+            <p class="mb-6 text-sm leading-6 text-slate-600">写真ギャラリー。左右の矢印やスワイプで切り替えられます。</p>
+            <section class="splide mx-auto w-full max-w-[640px] lg:w-[50vw]" aria-label="作品の写真ギャラリー">
+                <div class="splide__track rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <figure>
+                                <img src="./img/6116B4B5-5567-4E82-9163-9AD8FE4AFF79.jpg" alt="ギャラリーの写真1"
+                                    class="block aspect-[4/3] max-h-[50vh] w-full bg-slate-100 object-contain">
+                                <figcaption class="px-5 py-4 text-sm font-medium text-slate-600">写真 01</figcaption>
+                            </figure>
+                        </li>
+                        <li class="splide__slide">
+                            <figure>
+                                <img src="./img/37FDBD27-C885-4187-9AC8-E9219870A36C.jpg" alt="ギャラリーの写真2"
+                                    class="block aspect-[4/3] max-h-[50vh] w-full bg-slate-100 object-contain">
+                                <figcaption class="px-5 py-4 text-sm font-medium text-slate-600">写真 02</figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 px-4 py-8 text-center text-sm text-slate-300">
+        <p>2026 フォレスト</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        new Splide('.splide', {
+            type: 'loop',
+            perPage: 1,
+            gap: '1rem',
+            speed: 500,
+            i18n: {
+                prev: '前の写真へ',
+                next: '次の写真へ',
+                first: '最初の写真へ',
+                last: '最後の写真へ',
+                slideX: '%s枚目の写真へ',
+                pageX: '%sページ目へ',
+                carousel: '写真ギャラリー',
+                slide: '写真',
+                select: '表示する写真を選択',
+                slideLabel: '%s枚目（全%s枚）'
+            }
+        }).mount();
+    </script>
+</body>
+
+</html>
